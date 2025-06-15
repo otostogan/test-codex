@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
 import { UserModule } from '../user/user.module';
-import { PrismaModule } from '../prisma/prisma.module';
+import { DbModule } from '../db/db.module';
 import { AuthService } from './auth.service';
 import { AuthController } from './auth.controller';
 import { JwtStrategy } from './jwt.strategy';
@@ -10,7 +10,7 @@ import { JwtStrategy } from './jwt.strategy';
 @Module({
   imports: [
     UserModule,
-    PrismaModule,
+    DbModule,
     PassportModule,
     JwtModule.register({
       secret: process.env.JWT_SECRET || 'secret',
