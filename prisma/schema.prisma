@@ -22,3 +22,13 @@ model Session {
   createdAt    DateTime @default(now())
   revokedAt    DateTime?
 }
+
+model File {
+  id           Int      @id @default(autoincrement())
+  key          String   @unique
+  url          String
+  originalName String
+  size         Int
+  extension    String
+  createdAt    DateTime @default(now())
+}
